@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+COPY ["NetShop.CatalogService.API/NetShop.CatalogService.API.csproj", "NetShop.CatalogService.API/"]
+RUN dotnet restore "CatalogService.API/CatalogService.API.csproj"
+COPY . .
+WORKDIR "/src/NetShop.CatalogService.API"
+RUN dotnet build "NetShop.CatalogService.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "NetShop.CatalogService.API.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "NetShop.CatalogService.API.dll"]
