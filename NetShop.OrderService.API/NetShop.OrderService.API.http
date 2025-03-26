@@ -1,6 +1,0 @@
-@NetShop.OrderService.API_HostAddress = http://localhost:5032
-
-GET {{NetShop.OrderService.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
