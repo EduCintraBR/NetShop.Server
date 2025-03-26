@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogService", "CatalogService", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrderService", "OrderService", "{7756E3E9-12D7-485C-8B2D-DA8DD4B357A8}"
 EndProject
@@ -34,6 +37,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetShop.OrderService.Infrastructure", "NetShop.OrderService.Infrastructure\NetShop.OrderService.Infrastructure.csproj", "{7F47C9AE-D144-4150-9C3A-49B23F79BA7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetShop.OrderService.Tests", "NetShop.OrderService.Tests\NetShop.OrderService.Tests.csproj", "{04D5BCCF-A564-439E-833D-EA86718CC374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetShop.ApiGateway.API", "NetShop.ApiGateway.API\NetShop.ApiGateway.API.csproj", "{3E41C336-7CC9-44EC-9F3B-EB512E0331AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetShop.IdentityService.IdentityAPI", "NetShop.IdentityService.IdentityAPI\NetShop.IdentityService.IdentityAPI.csproj", "{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +93,14 @@ Global
 		{04D5BCCF-A564-439E-833D-EA86718CC374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04D5BCCF-A564-439E-833D-EA86718CC374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04D5BCCF-A564-439E-833D-EA86718CC374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E41C336-7CC9-44EC-9F3B-EB512E0331AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E41C336-7CC9-44EC-9F3B-EB512E0331AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E41C336-7CC9-44EC-9F3B-EB512E0331AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E41C336-7CC9-44EC-9F3B-EB512E0331AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +116,8 @@ Global
 		{AF59C256-AD26-48CD-AF48-D6E8DB99EB8E} = {7756E3E9-12D7-485C-8B2D-DA8DD4B357A8}
 		{7F47C9AE-D144-4150-9C3A-49B23F79BA7D} = {7756E3E9-12D7-485C-8B2D-DA8DD4B357A8}
 		{04D5BCCF-A564-439E-833D-EA86718CC374} = {7756E3E9-12D7-485C-8B2D-DA8DD4B357A8}
+		{3E41C336-7CC9-44EC-9F3B-EB512E0331AF} = {7C95C6C1-DC8C-4040-9F1E-A12245BAFF00}
+		{AA0D2DDA-6ED5-4663-AC68-9CB6CEC6840E} = {328139B7-B535-42E0-A4AA-262C442B1D19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48FE6245-309A-49D3-BAE0-F92869E294FB}
