@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NetShop.CatalogService.Application.Commands;
+using NetShop.CatalogService.Application.Queries;
 
 namespace NetShop.CatalogService.API.Controllers
 {
@@ -19,13 +20,21 @@ namespace NetShop.CatalogService.API.Controllers
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
         {
             var productId = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetProductById), new { id = productId }, null);
+            return CreatedAtAction(nameof(GetProducts), new { id = productId }, null);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            var products = await _mediator.Send(new GetProductsQuery());
+            return Ok(products);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProductById(Guid id)
+        public async Task<IActionResult> GetProductById([FromRoute] GetProductByIdQuery query)
         {
-            return Ok();
+            var product = await _mediator.Send(query);
+            return Ok(product);
         }
     }
 
