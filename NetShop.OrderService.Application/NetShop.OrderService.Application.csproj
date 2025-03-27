@@ -14,11 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetShop.OrderService.Domain\NetShop.OrderService.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Mappings\" />
-    <Folder Include="Queries\" />
+    <ProjectReference Include="..\NetShop.OrderService.Infrastructure\NetShop.OrderService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

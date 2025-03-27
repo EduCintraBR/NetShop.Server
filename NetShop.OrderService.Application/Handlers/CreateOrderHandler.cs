@@ -9,12 +9,10 @@ namespace NetShop.OrderService.Application.Handlers
     public class CreateOrderHandler : IRequestHandler<CreateOrderCommand, Guid>
     {
         private readonly IOrderRepository _orderRepository;
-        private readonly IMapper _mapper;
 
-        public CreateOrderHandler(IOrderRepository orderRepository, IMapper mapper)
+        public CreateOrderHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
-            _mapper = mapper;
         }
 
         public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -28,12 +26,13 @@ namespace NetShop.OrderService.Application.Handlers
                 {
                     Id = Guid.NewGuid(),
                     ProductId = item.ProductId,
-                    Quantity = item.Quantity
-                }).ToList()
+                    Quantity = item.Quantity,
+                    UnitPrice = 0
+                })
+                .ToList()
             };
 
             await _orderRepository.AddAsync(order);
-
             return order.Id;
         }
     }

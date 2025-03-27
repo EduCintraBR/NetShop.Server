@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NetShop.OrderService.Application.Commands;
+using NetShop.OrderService.Application.Queries;
 
 namespace NetShop.OrderService.API.Controllers
 {
@@ -20,6 +21,13 @@ namespace NetShop.OrderService.API.Controllers
         {
             var orderId = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetOrderById), new { id = orderId }, null);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOrders()
+        {
+            var orders = await _mediator.Send(new GetOrdersQuery());
+            return Ok(orders);
         }
 
         [HttpGet("{id}")]

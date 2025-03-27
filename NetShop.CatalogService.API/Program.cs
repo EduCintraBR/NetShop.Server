@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using NetShop.CatalogService.Infrastructure.Persistence;
+using NetShop.CatalogService.Infrastructure.Persistence.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

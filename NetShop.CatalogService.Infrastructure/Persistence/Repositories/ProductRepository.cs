@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NetShop.CatalogService.Domain.Entities;
+using NetShop.CatalogService.Infrastructure.Persistence.Data;
 
 namespace NetShop.CatalogService.Infrastructure.Persistence.Repositories
 {
@@ -14,8 +15,13 @@ namespace NetShop.CatalogService.Infrastructure.Persistence.Repositories
 
         public async Task AddAsync(Product product)
         {
-            _context.Products.Add(product);
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<Product> FindByIdAsync(Guid id)
+        {
+            return await _context.Products.FindAsync(id);
         }
 
         public async Task<IEnumerable<Product>> GetAllAsync()

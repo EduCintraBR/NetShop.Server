@@ -4,6 +4,8 @@ namespace NetShop.OrderService.Application.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<Order> AddAsync(Order order);
+        Task AddAsync(Order order);
+        Task<IEnumerable<Order>> GetAllAsync();
+        Task<Order> FindByIdAsync(Guid id);
     }
 }
