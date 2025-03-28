@@ -4,6 +4,7 @@ using MediatR;
 using NetShop.CatalogService.Application.Commands;
 using NetShop.CatalogService.Domain.Entities;
 using NetShop.CatalogService.Domain.Events;
+using NetShop.CatalogService.Infrastructure.Messaging;
 using NetShop.CatalogService.Infrastructure.Persistence.Repositories;
 
 namespace NetShop.CatalogService.Application.Handlers
@@ -12,13 +13,13 @@ namespace NetShop.CatalogService.Application.Handlers
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
-        private readonly IPublishEndpoint _publishEndpoint;
+        private readonly IEventPublisher _eventPublisher;
 
-        public CreateProductHandler(IProductRepository repository, IMapper mapper, IPublishEndpoint publishEndpoint)
+        public CreateProductHandler(IProductRepository repository, IMapper mapper, IEventPublisher eventPublisher)
         {
             _repository = repository;
             _mapper = mapper;
-            _publishEndpoint = publishEndpoint;
+            _eventPublisher = eventPublisher;
         }
 
         public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
@@ -31,7 +32,7 @@ namespace NetShop.CatalogService.Application.Handlers
             await _repository.AddAsync(product);
 
             // Publica o evento para a arquitetura Event Driven
-            await _publishEndpoint.Publish(new ProductCreatedEvent
+            await _eventPublisher.PublishAsync(new ProductCreatedEvent
             {
                 ProductId = product.Id,
                 Name = product.Name,

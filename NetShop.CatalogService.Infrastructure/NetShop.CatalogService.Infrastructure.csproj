@@ -19,8 +19,4 @@
     <ProjectReference Include="..\NetShop.CatalogService.Domain\NetShop.CatalogService.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Messaging\" />
-  </ItemGroup>
-
 </Project>
